@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="StopWatch">
+        <h1 id="displayTime">00:00:00:00</h1>
+        <h2 id="recordTime"></h2>
+        <div class="buttons">
+            <img src="photoes/download.png" onclick="stop()">
+            <img src="photoes/images.png" onclick="start()">
+            <img src="photoes/download (1).png" onclick="reset()">
+            <img src="photoes/record.png" onclick="record()">
+        </div>
+    </div>
+    <script>
+        let [hour, minute, second, milisecond] = [0, 0, 0, 0];
+        let displayTime = document.getElementById("displayTime");
+        let recordTime = document.getElementById("recordTime");
+        timer = null;
+
+        stopWatch = () => {
+            milisecond+=10;
+            if (milisecond == 1000) {
+                milisecond = 0;
+                second++;
+                if (second == 60) {
+                    second = 0;
+                    minute++;
+                    if (minute == 60) {
+                        minute = 0;
+                        hour++
+                    }
+
+                }
+                
+            }
+            displayTime.innerHTML = hour + ":" + minute + ":" + second+ ":" + milisecond;
+        }
+            start = () => {
+                if (timer != null) {
+                    clearInterval(timer);
+                }
+                timer = setInterval(stopWatch, 10);
+            }
+            stop = () => {
+                clearInterval(timer);
+                // recordTime.innerHTML = hour + ":" + minute + ":" + second;
+            }
+            reset = () => {
+                clearInterval(timer);
+                [hour, minute, second] = [0, 0, 0];
+                displayTime.innerHTML = "0:0:0:0";
+                recordTime.innerHTML = "";
+
+            }
+            record = () => {
+                recordTime.innerHTML = hour + ":" + minute + ":" + second + ":" + milisecond;
+            }
+    </script>
+
+</body>
+
+</html>

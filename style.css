@@ -1,0 +1,33 @@
+body{
+    background: #ceaaaa;
+}
+.StopWatch{
+     background-color:brown;
+     background-image: none;
+     background-size: cover;
+     background-position: center;
+     text-align: center;
+     margin: 200px auto;
+     max-width: 600px;
+     max-height: 600px;
+     
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons img{
+    width: 60px;
+    margin: 0 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.buttons img:nth-child(2){
+    width: 100px;
+}
+.buttons img:nth-child(3){
+    width: 80px;
+}
+
+
